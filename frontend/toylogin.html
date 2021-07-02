@@ -1,0 +1,61 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+<h1>Login</h1>
+<div id="user">
+     {{ message }}
+    <input v-model="user">
+    <p></p>
+</div>
+<div id="password">
+     {{ message }}
+    <input v-model="password">
+    <p></p>
+</div>
+<div id="login">
+     <button v-on:click="validateCredentials">Login</button>
+        <a href="../../web2py/applications/job.html"></a>
+</div>
+
+<script>
+var user = new Vue({
+    el: '#user',
+    data: {
+      message: 'Enter User ID   '
+        }
+    })
+var password = new Vue({
+    el: '#password',
+    data: {
+      message: 'Enter Password'
+        }
+    })
+var login = new Vue({
+    el: '#login',
+    data: {
+        },
+
+        methods: {
+            validateCredentials: function () {
+                console.log("Try LOGs")
+                if (this.input.user !== "" && this.password !== "") {
+                    if (this.input.user == "recruiter@screel.in" &&
+                            this.input.password == "pass123") {
+                        console.log("Authenticated")
+                    } else {
+                        console.log("Invalid User Name or Password")
+                    }
+                }
+                else{console.log("User Name and Password are required")}
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
